@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>إشارة المشاة الذكية | Smart Pedestrian Signal</title>
+  <meta name="description" content="موقع تعريفي تفاعلي لاختراع إشارة المشاة الذكية: نسختان، مجسم ثلاثي الأبعاد، ومحاكاة تشغيل. | Interactive showcase of the Smart Pedestrian Signal invention." />
+  <meta name="theme-color" content="#0c1511" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip"></a>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#home" aria-label="Smart Pedestrian Signal">
+      <img src="/logo.svg" alt="" width="34" height="34" />
+      <span class="brand-text"><b data-i18n="brand.name"></b><small data-i18n="brand.sub"></small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#problem" data-i18n="nav.problem"></a>
+      <a href="#versions" data-i18n="nav.versions"></a>
+      <a href="#lab" data-i18n="nav.lab"></a>
+      <a href="#compare" data-i18n="nav.compare"></a>
+      <a href="#journey" data-i18n="nav.journey"></a>
+      <a href="#gallery" data-i18n="nav.gallery"></a>
+      <a href="#contact" data-i18n="nav.contact"></a>
+    </nav>
+    <div class="topbar-actions">
+      <button class="btn-lang" id="langBtn" type="button" aria-label="Language"></button>
+      <button class="btn-menu" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <h1 class="hero-title"><span data-i18n="hero.title1"></span> <span data-i18n="hero.title2"></span></h1>
+        <p class="hero-en" lang="en">Smart Pedestrian Signal</p>
+        <p class="hero-lead" data-i18n="hero.lead"></p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" id="heroRun" type="button" data-i18n="hero.cta"></button>
+          <a class="btn btn-ghost" href="#versions" data-i18n="hero.cta2"></a>
+        </div>
+      </div>
+      <div class="hero-stage">
+        <div class="viewer-slot" id="heroViewer" role="img" aria-label="3D model of the invention"></div>
+        <div class="hero-badge"><i class="dot"></i><span data-i18n="hero.badge"></span></div>
+      </div>
+    </section>
+
+    <!-- PROBLEM / SOLUTION -->
+    <section class="section" id="problem">
+      <div class="section-head"><h2 data-i18n="problem.title"></h2><p class="lead" data-i18n="problem.lead"></p></div>
+      <div class="split">
+        <article class="panel"><h3 data-i18n="problem.pTitle"></h3><p data-i18n="problem.pText"></p></article>
+        <article class="panel"><h3 data-i18n="problem.sTitle"></h3><p data-i18n="problem.sText"></p></article>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3 class="sub-h" data-i18n="goals.title"></h3>
+          <ul class="check-list" id="goalsList"></ul>
+        </div>
+        <div>
+          <h3 class="sub-h" data-i18n="how.title"></h3>
+          <ol class="steps-list" id="howList"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- VERSIONS -->
+    <section class="section" id="versions">
+      <div class="section-head"><h2 data-i18n="versions.title"></h2><p class="lead" data-i18n="versions.lead"></p></div>
+      <div id="versionsMount"></div>
+    </section>
+
+    <!-- LAB -->
+    <section class="section section-wide" id="lab">
+      <div class="section-head"><h2 data-i18n="lab.title"></h2><p class="lead" data-i18n="lab.lead"></p></div>
+
+      <div class="lab-bar">
+        <div class="seg" role="tablist" aria-label="Version" id="verSeg">
+          <button type="button" role="tab" data-ver="v1"><b>V1</b><span data-i18n="ver.basic"></span></button>
+          <button type="button" role="tab" data-ver="v2"><b>V2</b><span data-i18n="ver.advanced"></span></button>
+        </div>
+        <p class="lab-hint" data-i18n="lab.hint"></p>
+      </div>
+
+      <div class="lab-grid">
+        <div class="viewer-card">
+          <div class="viewer-slot viewer-main" id="labViewer" aria-label="3D"></div>
+          <div class="viewer-tools">
+            <button type="button" class="tool" id="tgLabels" aria-pressed="true"></button>
+            <button type="button" class="tool" id="tgSpin" aria-pressed="false"></button>
+            <button type="button" class="tool" id="tgReset"></button>
+          </div>
+          <div class="viewer-fallback" id="viewerFallback" hidden></div>
+        </div>
+
+        <aside class="lab-side">
+          <div class="seg seg-sm" role="tablist" id="sideTabs">
+            <button type="button" role="tab" data-tab="parts" data-i18n="lab.tabParts"></button>
+            <button type="button" role="tab" data-tab="sim" data-i18n="lab.tabSim"></button>
+          </div>
+
+          <div class="tab-pane" id="paneParts">
+            <div class="info-card" id="infoCard"></div>
+            <h4 class="mini-h" data-i18n="lab.visibility"></h4>
+            <div class="chips" id="partChips"></div>
+            <p class="note" data-i18n="lab.wiringNote"></p>
+          </div>
+
+          <div class="tab-pane" id="paneSim" hidden>
+            <div class="street" id="street"></div>
+            <div class="sim-controls">
+              <button type="button" class="btn btn-primary" id="simRun"></button>
+              <button type="button" class="btn btn-cross" id="simCross" disabled></button>
+            </div>
+            <div class="sr-only" id="simStatus" aria-live="polite"></div>
+            <div class="v2-only" id="v2Controls">
+              <label class="range">
+                <span><b data-i18n="sim.distance"></b> <output id="distOut"></output></span>
+                <input type="range" id="distRange" min="5" max="300" step="1" value="150" />
+              </label>
+              <button type="button" class="tool" id="tgSound" aria-pressed="true"></button>
+            </div>
+            <ul class="log" id="simLog" aria-label="log"></ul>
+            <p class="note" id="timingNote"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- COMPARE -->
+    <section class="section" id="compare">
+      <div class="section-head"><h2 data-i18n="compare.title"></h2><p class="lead" data-i18n="compare.lead"></p></div>
+      <div class="table-wrap"><table class="cmp" id="cmpTable"></table></div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section class="section" id="journey">
+      <div class="section-head"><h2 data-i18n="journey.title"></h2></div>
+      <div class="journey-grid">
+        <div>
+          <h3 class="sub-h" data-i18n="stages.title"></h3>
+          <ol class="timeline" id="stagesList"></ol>
+        </div>
+        <div>
+          <h3 class="sub-h" data-i18n="results.title"></h3>
+          <div id="resultsMount"></div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div><h3 class="sub-h" data-i18n="uses.title"></h3><ul class="check-list" id="usesList"></ul></div>
+        <div><h3 class="sub-h" data-i18n="future.title"></h3><ul class="check-list" id="futureList"></ul></div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section" id="gallery">
+      <div class="section-head"><h2 data-i18n="gallery.title"></h2></div>
+      <div class="gallery" id="galleryGrid"></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-head"><h2 data-i18n="contact.title"></h2><p class="lead" data-i18n="contact.lead"></p></div>
+      <ul class="contact-list" id="contactList"></ul>
+    </section>
+  </main>
+
+  <footer class="footer"><span data-i18n="footer"></span></footer>
+
+  <dialog class="lightbox" id="lightbox"><button type="button" id="lbClose" aria-label="Close">×</button><img id="lbImg" alt="" /><p id="lbCap"></p></dialog>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
